@@ -1,0 +1,41 @@
+---
+name: "assume_role"
+runner_type: "python-script"
+description: "Assume a role to use with boto3action"
+enabled: true
+entry_point: "assume_role.py"
+pack: "aws_boto3"
+parameters:
+  role_arn:
+    type: "string"
+    description: "ARN of the role"
+    required: true
+  policy:
+    type: "string"
+    description: "Policy document"
+  aws_access_key_id:
+    type: "string"
+    description: "AWS Access Key"
+    secret: true
+  aws_secret_access_key:
+    type: "string"
+    description: "AWS Secret Access Key"
+    secret: true
+  duration:
+    type: integer
+    description: "Duration (seconds) for the session"
+    default: 3600
+  external_id:
+    type: "string"
+    description: "External Id"
+  use_mfa:
+    type: "boolean"
+    description: "Include MFA details."
+    default: False
+  serial_number:
+    type: "string"
+    description: "Serial number of the MFA"
+  token_code:
+    type: "string"
+    description: "Token code from the MFA"
+    secret: true
